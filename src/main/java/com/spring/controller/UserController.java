@@ -75,4 +75,10 @@ public class UserController {
         }
         return "Item details for ID: " + id;
     }
+	
+	@GetMapping("new-git")
+	public String getFirstNewGitChanges()
+	{
+		return "Added some changes into the controller";
+	}
 }
