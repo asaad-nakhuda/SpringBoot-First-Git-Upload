@@ -1,12 +1,10 @@
 package com.spring.service;
 
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.json.JsonSanitizer;
 import com.spring.entity.DataRecord;
 
 @Service
