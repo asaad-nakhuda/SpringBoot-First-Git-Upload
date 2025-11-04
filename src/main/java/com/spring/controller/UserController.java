@@ -3,6 +3,7 @@ package com.spring.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.config.UserConfig;
+import com.spring.config.UserConfigComp;
 import com.spring.entity.DataRecord;
 import com.spring.entity.User;
 import com.spring.service.JsonProcessingService;
@@ -26,6 +28,9 @@ public class UserController {
 	private final UserConfig config;
 	private UserService service;
 	private JsonProcessingService processingService;
+	
+	@Autowired
+	private UserConfigComp configComp;
 
 	
 
@@ -50,6 +55,13 @@ public class UserController {
 	@GetMapping("cities")
 	public List<?> getCities(){
 		return config.getMaharashtra();
+	}
+	
+	
+	@GetMapping("city")
+	public List<String> getCity(){
+		configComp.printAppName();
+		return configComp.getAllMahCities();
 	}
 	
 	@GetMapping("/test-circuit")
